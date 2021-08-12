@@ -25,9 +25,22 @@ Each data sample (npy file) contains 3 time series (1 for each detector) and eac
 
 The integrated signal-to noise ratio (SNR) is classically the most informative measure of how detectable a signal is and a typical level of detectability is when this integrated SNR exceeds ~8. This shouldn't confused with the instantaneous SNR - the factor by which the signal rises above the noise - and in nearly all cases the (unlike the first gravitational wave detection GW150914) these signals are not visible by eye in the time series.
 
-###### Files
+## Files
 
 - **train/** - the training set files, one npy file per observation; labels are provided in a files shown below
 - **test/** - the test set files; you must predict the probability that the observation contains a gravitational wave
 - **training_labels.csv** - target values of whether the associated signal contains a gravitational wave
 - **sample_submission.csv** - a sample submission file in the correct format
+
+I included 3 different ways to solve this problem and use different models for them:
+- A solution based on EfficientNet 
+- A solution based on a modified EfficientNet - EfficientNetV2, with less number of parameters leading to faster traing time but improved score cannot be guaranteed
+- An Ensemble method
+
+
+References
+- [CQT G2Net EfficientNetB1[TPU Training]](https://www.kaggle.com/miklgr500/cqt-g2net-efficientnetb7-tpu-training-w-b?scriptVersionId=67485043)
+- [CQT G2Net EfficientNetV2B0[TPU Training]](https://www.kaggle.com/itsuki9180/cqt-g2net-efficientnetv2b0-tpu-training)
+- [[1] G2Net - Smart Ensembling](https://www.kaggle.com/somayyehgholami/1-g2net-smart-ensembling)
+
+If you find the above references useful, please don't forget to upvote.
