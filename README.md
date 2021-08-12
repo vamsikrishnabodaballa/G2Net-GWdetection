@@ -11,3 +11,4 @@ G2Net is a network of Gravitational Wave, Geophysics and Machine Learning. Via a
 
 In this competition, you’ll aim to detect GW signals from the mergers of binary black holes. Specifically, you'll build a model to analyze simulated GW time-series data from a network of Earth-based detectors.
 
+![The series of images above were taken from the 2015 paper announcing the discovery of gravitational waves from a pair of merging black holes.](/800px-LIGO_measurement_of_gravitational_waves.svg.png)
