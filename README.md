@@ -38,6 +38,13 @@ I included 3 different ways to solve this problem and use different models for t
 - An Ensemble method
 
 
+## Wavelet transform
+
+A popular way to classify 1D signals is to transform the 1D signal into one of several types of spectrograms and then convert this spectrogram to an image. The image is then fed to a pretrained CNN which is fine-tuned during training. Transformation to the frequency domain is quite compute intensive, so we would really like to perform this function on the GPU. Tensorflow currently has no continous wavelet transform (CWT), so we have to make our own. Thankfully, this is a quite simple task using Keras custom layer.
+
+
+
+
 References
 - [CQT G2Net EfficientNetB1[TPU Training]](https://www.kaggle.com/miklgr500/cqt-g2net-efficientnetb7-tpu-training-w-b?scriptVersionId=67485043)
 - [CQT G2Net EfficientNetV2B0[TPU Training]](https://www.kaggle.com/itsuki9180/cqt-g2net-efficientnetv2b0-tpu-training)
