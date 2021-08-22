@@ -62,9 +62,16 @@ The CWT is computed with the following steps:
 
 FFT+Kronecker+IFFT might not be the fastest implementation though, since it always computes with maximum resolution. A 2D convolution implementation can benefit from the stride parameter to reduce computations.
 
+The code has been modified with additional parameters for lower and upper frequency of intereset. Rather than doing bandpass filtering of the input signal to remove unwanted frequencies, we simply calculate the wavelet scales of interest only. This can save a significant amount of processing.
+
+The custom Keras layers code is saved to file here, for easy use in other notebooks. We also define a custom layer for scaling logarithmic data to image data range called Scaler1D, and a layer to stack 3 channels into a RGB image.
+
+For further understanding go through Wavelet1D: Custom Keras wavelet transform layer notebook.
+
 References
 - [CQT G2Net EfficientNetB1[TPU Training]](https://www.kaggle.com/miklgr500/cqt-g2net-efficientnetb7-tpu-training-w-b?scriptVersionId=67485043)
 - [CQT G2Net EfficientNetV2B0[TPU Training]](https://www.kaggle.com/itsuki9180/cqt-g2net-efficientnetv2b0-tpu-training)
 - [[1] G2Net - Smart Ensembling](https://www.kaggle.com/somayyehgholami/1-g2net-smart-ensembling)
+- [Wavelet1D: Custom Keras wavelet transform layer](https://www.kaggle.com/mistag/wavelet1d-custom-keras-wavelet-transform-layer)
 
 If you find the above references useful, please don't forget to upvote.
