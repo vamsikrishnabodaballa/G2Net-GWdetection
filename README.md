@@ -42,6 +42,16 @@ I included 3 different ways to solve this problem and use different models for t
 
 A popular way to classify 1D signals is to transform the 1D signal into one of several types of spectrograms and then convert this spectrogram to an image. The image is then fed to a pretrained CNN which is fine-tuned during training. Transformation to the frequency domain is quite compute intensive, so we would really like to perform this function on the GPU. Tensorflow currently has no continous wavelet transform (CWT), so we have to make our own. Thankfully, this is a quite simple task using Keras custom layer.
 
+The benefits of doing the CWT on the GPU are:
+
+- Much faster than CPU (leave the CPU for data loading)
+- Avoid quantization to 8-bit integer between float inputs and float ouputs to CNN
+- The wavelets can be trained(!)
+
+Start by loading in a sample gravitational wave signal that has a strong target signal (chirp).
+
+## Continous wavelet transform
+
 
 
 
