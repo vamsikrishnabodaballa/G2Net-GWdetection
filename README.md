@@ -52,8 +52,15 @@ Start by loading in a sample gravitational wave signal that has a strong target 
 
 ## Continous wavelet transform
 
+The wavelet transform is computed by convolving multiple wavelets with the input signal. There are many types of wavelets, here we use the Morlet wavelet. Those who work with signal processing know that a convolution in the time domain is equivalent to a multiplication in the frequency domain. The CWT implementation here is based on [Alexander Neergaard Olesen's Python code](https://github.com/neergaard/CWT). The CWT is explored and compared with FFT in this [notebook](https://www.kaggle.com/mistag/extracting-bird-song-signatures-with-wavelets).
 
+The CWT is computed with the following steps:
 
+- Take FFT of input signal
+- Multiply FFT spectrum with wavelet filterbank (Kronecker product)
+- Perform inverse FFT of the product
+
+FFT+Kronecker+IFFT might not be the fastest implementation though, since it always computes with maximum resolution. A 2D convolution implementation can benefit from the stride parameter to reduce computations.
 
 References
 - [CQT G2Net EfficientNetB1[TPU Training]](https://www.kaggle.com/miklgr500/cqt-g2net-efficientnetb7-tpu-training-w-b?scriptVersionId=67485043)
